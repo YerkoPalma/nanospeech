@@ -35,8 +35,6 @@ to 10, defaults to 1.
 to 2, defaults to 1.
 - volume(float): The volume of the utterance to be spoken, can be a value from 
 0 to 1, defaults to 0.5.
-- gener(string): Some browsers have male and female voices for the same lang, if 
-they do, this will try to set it.
 
 The `speech` object returned is an Event Emitter like object. It has two single 
 methods `on` and `emit` (There is no `off` method because there is actually no 
