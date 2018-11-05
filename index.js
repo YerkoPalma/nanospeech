@@ -24,6 +24,9 @@ export function speak (text, opts) {
   utterance.rate = opts.rate
   utterance.volume = opts.volume
 
+  // speak
+  synth.speak(utterance)
+
   function cancel () {
     synth.cancel()
   }
@@ -80,9 +83,9 @@ export const recognition  = (function () {
       set: (serviceURI) => { recognize.serviceURI = serviceURI }
     }
   })
-  _recognition.start = recognize.start
-  _recognition.stop = recognize.stop
-  _recognition.abort = recognize.abort
+  _recognition.start = recognize.start.bind(recognize)
+  _recognition.stop = recognize.stop.bind(recognize)
+  _recognition.abort = recognize.abort.bind(recognize)
   _recognition.on = (event, handler) => {
     if (event === 'nomatch') recognize.onnomatch = handler
     if (event === 'audiostart') recognize.onaudiostart = handler
