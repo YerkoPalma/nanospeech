@@ -19,6 +19,26 @@ recognition.start()
 recognition.on('result', text => console.log(text))
 ```
 
+## Install
+
+Include the following tgas in your html
+
+```
+<script type="module" src="https://unpkg.com/nanospeech?module"></script>
+<script nomodule src="https://unpkg.com/nanospeech@1.0.0/dist/nanospeech.umd.js"></script>
+```
+
+This will install the module version when the browser support modules and 
+fallback to the umd version when it don't. You can still import or require this
+
+```js
+import { speak } from 'nanospeech'
+
+// or
+
+var speak = require('nanospeech').speak
+```
+
 ## API
 ### `let speech = speak(text, [opts])`
 
