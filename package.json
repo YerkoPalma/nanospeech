@@ -6,6 +6,10 @@
   "main": "dist/nanospeech.js",
   "umd:main": "dist/nanospeech.umd.js",
   "module": "dist/nanospeech.mjs",
+  "files": [
+    "dist",
+    "index.js"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "budo -p 8080 -H 0.0.0.0 example.js",
@@ -13,7 +17,10 @@
     "prepublishOnly": "npm run build",
     "pretest": "npm run build"
   },
-  "keywords": [],
+  "keywords": [
+    "web",
+    "speech"
+  ],
   "author": "Yerko Palma",
   "license": "MIT",
   "devDependencies": {
