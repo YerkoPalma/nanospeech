@@ -21,7 +21,7 @@ recognition.on('result', text => console.log(text))
 
 ## Install
 
-Include the following tgas in your html
+Include the following tags in your html
 
 ```
 <script type="module" src="https://unpkg.com/nanospeech?module"></script>
@@ -83,7 +83,8 @@ speaking, it will do nothing.
 ### `recognition.on(event, handler)`
 `event` is a string with the name of the event to listen to. `handler` is a 
 function which always get a [SpeechRecognitionEvent][SpeechRecognitionEvent] as 
-its argument. Availaible events are:
+its argument, with the exception of the result event which gets the text 
+recognized as a string for the argument. Availaible events are:
 
 - nomatch: Fired when the speech recognition service returns a final result with 
 no significant recognition. 
@@ -116,3 +117,6 @@ audio captured so far.
 [BCP47]: https://tools.ietf.org/html/bcp47
 [SpeechSynthesisEvent]: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisEvent
 [SpeechRecognitionEvent]: https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognitionEvent
+
+## LICENSE
+[MIT](/license)
