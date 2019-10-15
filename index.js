@@ -53,7 +53,7 @@ export function speak (text, opts) {
   }
 }
 
-export const recognition  = (function () {
+export const recognition = (function () {
   var SpeechRecognition = window.SpeechRecognition ||
                           window.webkitSpeechRecognition ||
                           window.mozSpeechRecognition ||
@@ -95,9 +95,11 @@ export const recognition  = (function () {
     if (event === 'speechstart') recognize.onspeechstart = handler
     if (event === 'speechend') recognize.onspeechend = handler
     if (event === 'end') recognize.onend = handler
-    if (event === 'result') recognize.onresult = event => {
-      const text = event.results[event.resultIndex][0].transcript.trim()
-      handler(text)
+    if (event === 'result') {
+      recognize.onresult = event => {
+        const text = event.results[event.resultIndex][0].transcript.trim()
+        handler(text)
+      }
     }
   }
   _recognition.emit = event => {
