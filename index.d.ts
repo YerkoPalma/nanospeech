@@ -2,7 +2,7 @@ interface SpeakOptions {
   rate: number;
   picth: number;
   volume: number;
-  lang: string;
+  lang: string | string[];
 }
 
 type Speech = {

@@ -13,8 +13,9 @@ export function speak (text, opts) {
   let voices = synth.getVoices()
   let voice = voices.filter(voice => voice.default)[0]
   if (opts.lang) {
-    voices = voices.filter(voice => voice.lang === opts.lang)
-    if (voices.length > 0) voice = voices[0]
+    // voices = voices.filter(voice => voice.lang === opts.lang)
+    // if (voices.length > 0) voice = voices[0]
+    voice = selectVoice(opts.lang)
   }
   const utterance = new SpeechSynthesisUtterance(text)
 
@@ -50,6 +51,21 @@ export function speak (text, opts) {
     cancel,
     pause,
     resume
+  }
+
+  function selectVoice (lang) {
+    if (typeof lang === 'string') lang = [lang]
+    const l = lang.shift()
+    voices = synth.getVoices().filter(voice => voice.lang === l)
+    if (voices.length === 0) {
+      if (lang.length > 0) {
+        return selectVoice(lang)
+      } else {
+        return synth.getVoices().filter(voice => voice.default)[0]
+      }
+    } else {
+      return voices[0]
+    }
   }
 }
 
