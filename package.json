@@ -1,6 +1,6 @@
 {
   "name": "nanospeech",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Web speech api simplified",
   "source": "index.js",
   "main": "dist/nanospeech.js",
